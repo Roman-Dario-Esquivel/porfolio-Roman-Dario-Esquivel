@@ -1,0 +1,7 @@
+div{
+  padding: 4%;
+  background-color: #00796B;
+}
+
+hr {border: 1px dashed #18ffff; height: 0; width: 100%;}
+hr {border: 0; height: 10px; border-top: 2px dashed #18ffff; border-bottom: 2px dashed #18ffff;}

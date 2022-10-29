@@ -1,8 +1,5 @@
-div{
+.row{
   background-color:#00796B;
+
 }
-app-rsocial{
-  float: right;
-  margin-top: 25px;
-  margin-right: 25px;
-}
+

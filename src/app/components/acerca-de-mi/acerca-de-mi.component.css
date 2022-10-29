@@ -1,16 +1,42 @@
 .row{
   padding: 40px;
-  color: #BDBDBD;
+  color: #263226;
 }
 div{
   background-color: #00796B;
   text-align: center;
 }
+/*foto de perfil*/
 #fotodeperfil{
   width: 100%;
   border-radius: 100%;
- box-shadow: 3px 3px 3px grey;
+ box-shadow: 3px 3px 3px #bdbdbd;
 }
+/*presentacion*/
+#presentacion{
+  color: white;
+  /*border-style: solid;s*/
+  border-radius: 30px;
+  padding-top: 3%;
+  background-color: rgba(0, 0, 0, 0.26);
+ /*opacity: 0.3;*/
+  text-align: center;
+  left: 10%;
+  top: 100%;
+
+}
+/*etiqueta nombre*/
+#nombre{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 200%;
+  margin-top: 20%;
+  font-weight: bold;
+  margin-top: 30%;
+}
+#senioriti{
+  font-size: 150%;
+}
+
 /*imagen*/
 @media  (min-width: 800px){
   #fotodeperfil{
@@ -36,24 +62,19 @@ div{
   .row{
     padding-top: 150px;
   }
-}
 
-#nombre{
-  font-weight: bold;
-  margin-top: 30%;
 }
-
   @media(max-width:570px){
     .row{
       padding-top: 30px;
     }
     #fotodeperfil{
       position: static;
-    width: 200px;
+      width: 200px;
     height: auto;
     }
     #presentacion{
-      text-align: center;
+      text-align: left;
       top: 50px;
     }
     #nombre{
@@ -61,14 +82,4 @@ div{
       margin-top: 30px;
     }
 
-}
-/*etiqueta nombre*/
-#nombre{
-  font-weight: bold;
-  margin-top: 30%;
-}
-#presentacion{
-  text-align: center;
-  left: 10%;
-  top: 100%;
 }

@@ -1,3 +1,32 @@
+.row{
+  background-color:#00695c;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+img{
+  width: 50px;
+}
 #logoAP{
   width: 150px;
 }
+.redes{
+  margin-right: 10px;
+}
+.btn{
+  border-width: medium;
+}
+.redes img{
+  margin:0  5px;
+}
+@media (max-width:570px){
+  .container{
+    flex-direction: column;
+  }
+  .redes{
+    display: flex;
+  }
+}
+
