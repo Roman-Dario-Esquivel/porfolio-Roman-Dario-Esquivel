@@ -8,11 +8,27 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  authUR ='http://localhost:8080/personas/';
+  //authURL ='http://localhost:8080/personas/';
+  authURL = 'https://apirdeargentinaprograma.herokuapp.com/personas/';
 
-  constructor(private http: HttpClient) { }
-    public getPersona(): Observable<persona>{
-      return this.http.get<persona>(this.authUR+ 'traer/perfil');
-    }
+  constructor(private httpClient: HttpClient) { }
+  public lista(): Observable<persona[]>{
+    return this.httpClient.get<persona[]>(this.authURL + 'lista');
+  }
 
+  public detail(id: number): Observable<persona>{
+    return this.httpClient.get<persona>(this.authURL + `detail/${id}`);
+  }
+
+  /*public save(educacion: Educacion): Observable<any>{
+    return this.httpClient.post<any>(this.URL + 'create', educacion);
+  }*/
+
+  public update(id: number, Persona: persona): Observable<any>{
+    return this.httpClient.put<any>(this.authURL + `update/${id}`,Persona );
+  }
+
+  /*public delete(id: number): Observable<any>{
+    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
+  }*/
   }

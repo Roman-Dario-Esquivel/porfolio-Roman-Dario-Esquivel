@@ -1,0 +1,25 @@
+.fondo{
+  height: 100vh;
+  background-color: #00796B;
+
+}
+.row{
+  padding: 20px;
+  color: #BDBDBD;
+}
+.form-group{
+  max-width: 700px;
+
+}
+.form{
+  margin-top: 25%;
+}
+@media  (min-width: 800px){
+  .form{
+    padding-left: 25%;
+  }
+  .form-group{
+    max-width: 80%;
+  }
+
+  }

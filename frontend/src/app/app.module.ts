@@ -18,6 +18,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component'
 import { interceptorProvider } from './service/interceotor-service';
+import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
+import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
+import { NewEducacionComponent } from './components/educacion/new-educacion.component';
+import { NewSkillComponent } from './components/hard-soft-skills/new-skill.component';
+import { EditSkillComponent } from './components/hard-soft-skills/edit-skill.component';
+import { EditAcercaDeComponent } from './components/acerca-de-mi/edit-acerca-de.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
@@ -32,14 +43,23 @@ import { interceptorProvider } from './service/interceotor-service';
     ProyectosComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent,
+    EditEducacionComponent,
+    NewEducacionComponent,
+    NewSkillComponent,
+    EditSkillComponent,
+    EditAcercaDeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers:[
     interceptorProvider

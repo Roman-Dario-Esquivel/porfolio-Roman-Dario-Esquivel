@@ -2,8 +2,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 <div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"></div>
+    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 button">
+      <button type="button" class="btn btn-dark" routerLink="/editacercade/1" *ngIf="isLogged">
+        <i class="bi bi-pencil-fill"></i> Editar Persona
+    </button>
+  </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="contenedor_imagi">
-    <img src="../../../assets/foco_porfolio.png" class="img-fluid" id="fotodeperfil">
+    <img src={{persona.img}}  class="img-fluid" id="fotodeperfil">
   </div>
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <p id="nombre">{{persona.nombre}} {{persona.apellido}}</p>
@@ -13,7 +19,7 @@
     <span>
       <h1>Acerca de mi</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure distinctio nam explicabo nemo corporis. Dolore aperiam eligendi tempore natus eius voluptatem delectus odio dolorem doloremque quasi ipsam totam, esse fugit?
+        {{persona.descripcion}}
       </p>
     </span>
   </div>
