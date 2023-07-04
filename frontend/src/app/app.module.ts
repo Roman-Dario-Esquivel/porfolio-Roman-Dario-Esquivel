@@ -28,6 +28,8 @@ import { EditAcercaDeComponent } from './components/acerca-de-mi/edit-acerca-de.
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NewProyectosSComponent } from './components/proyectos/new-proyectos-s.component';
+import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NewEducacionComponent,
     NewSkillComponent,
     EditSkillComponent,
-    EditAcercaDeComponent
+    EditAcercaDeComponent,
+    NewProyectosSComponent,
+    EditProyectosSComponent
   ],
   imports: [
     BrowserModule,

@@ -36,6 +36,10 @@ div{
 #senioriti{
   font-size: 150%;
 }
+#descripcion{
+  word-wrap: break-word;
+
+}
 
 /*imagen*/
 @media  (min-width: 800px){

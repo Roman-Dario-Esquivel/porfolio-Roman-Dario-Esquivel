@@ -18,31 +18,43 @@ export class EditAcercaDeComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
+    this.imageService.auxbanner = null;
+    this.imageService.auxperfil = null;
     this.personaService.detail(id).subscribe(
-      data =>{
+      data => {
         this.persona = data;
-      }, err =>{
-         alert("Error al modificar");
-         this.router.navigate(['']);
+      }, err => {
+        alert("Error al modificar");
+        this.router.navigate(['']);
       }
     )
   }
-  onUpdate():void{
-      const id = this.activatedRouter.snapshot.params['id'];
-      this.persona.img = this.imageService.url
-      console.log("La URL persona es: "+this.persona.img)
-      this.personaService.update(id, this.persona).subscribe(
-        data => {
-          this.router.navigate(['']);
-        }, err => {
-          alert("Error al modificar persona");
-          this.router.navigate(['']);
-        }
-      )
+  onUpdate(): void {
+    const id = this.activatedRouter.snapshot.params['id'];
+    if(this.imageService.auxperfil!=null){
+      this.persona.imgperfil = this.imageService.auxperfil;
     }
-  uploadImage($event:any){
-const id = this.activatedRouter.snapshot.params['id'];
-const name = "perfil_" + id;
-    this.imageService.uploadImage($event,name);
+    if(this.imageService.auxbanner!=null){
+      this.persona.imgbanner = this.imageService.auxbanner;
+    }
+    this.personaService.update(id, this.persona).subscribe(
+      data => {
+        alert("persona modificado correctamente");
+        this.router.navigate(['']);
+      }, err => {
+        alert("Error al modificar persona");
+        this.router.navigate(['']);
+      }
+    )
+  }
+  uploadImagePerfil($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "perfil_" + id;
+    this.imageService.uploadImage($event, name);
+  }
+  uploadImagebanner($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "banner_" + id;
+    this.imageService.uploadImage($event, name);
   }
 }

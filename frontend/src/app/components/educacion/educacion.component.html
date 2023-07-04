@@ -1,31 +1,46 @@
 <div class="row">
   <h1>Educacion</h1>
   <div class="col-lg-2">
-      <button type="button" class="btn btn-secondary" routerLink="/nuevaedu" *ngIf="isLogged">
-          Agregar Educacion
-      </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      routerLink="/newedu"
+      *ngIf="isLogged"
+    >
+      Nueva Educacion
+    </button>
   </div>
 
-  <div class="col lg 1"></div>
-  <div class="col-lg-11">
-      <table class="table">
-          <tbody>
-              <tr *ngFor="let Educacion of educacion">
-                  <td>
-                      <h2>{{Educacion.nombreE}}</h2>
-                  </td>
-                  <td>{{Educacion.descripcionE}}</td>
-                  <td *ngIf="isLogged">
-                      <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
-                          <i class="bi bi-pencil-fill"></i> EDITAR</button>
-                  </td>
-                  <td *ngIf="isLogged">
-                      <button class="btn btn-danger" (click)="delete(Educacion.id)">
-                          <i class="bi bi-trash-fill"></i> BORRAR</button>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
+  <div id="edu" *ngFor="let Educacion of educacion">
+    <div id="botones" *ngIf="isLogged">
+      <div>
+        <button class="btn btn-light" routerLink="/editedu/{{ Educacion.id }}">
+          <i class="bi bi-pencil-fill"></i> EDITAR
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-danger" (click)="delete(Educacion.id)">
+          <i class="bi bi-trash-fill"></i> BORRAR
+        </button>
+      </div>
+    </div>
+    <div class="espaci" id="experiencia">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="fechas">
+        <h5 id="actualmente" *ngIf="Educacion.actualmente == 1">
+          {{ Educacion.fecha_inicio }} - Actualmente
+        </h5>
+        <h5 id="fecha_fin" *ngIf="Educacion.actualmente == 0">
+          {{ Educacion.fecha_inicio }} - {{ Educacion.fecha_fin }}
+        </h5>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="parte">
+        <h2 id="titulo">{{ Educacion.titulacion }}</h2>
+        <div id="emp_logo">
+          <img src="{{ Educacion.logoimg }}" id="logo" />
+          <h2 id="institucion">{{ Educacion.institucion }}</h2>
+        </div>
+        <p id="descripcion">{{ Educacion.descripcion_edu }}</p>
+      </div>
+    </div>
   </div>
-
 </div>

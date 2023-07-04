@@ -10,8 +10,8 @@ import { Skills } from '../model/skills';
 })
 export class SkillService {
 
-  //URL = 'http://localhost:8080/skill/';
-  URL = 'https://apirdeargentinaprograma.herokuapp.com/skill/';
+  URL = 'http://localhost:8080/skill/';
+  //URL = 'https://apirdeargentinaprograma.herokuapp.com/skill/';
 
   constructor(private httpClient: HttpClient) { }
 

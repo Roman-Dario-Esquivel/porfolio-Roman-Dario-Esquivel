@@ -1,5 +1,5 @@
 .fondo{
-  height: 100vh;
+  height: 200vh;
   background-color: #00796B;
 
 }
@@ -15,12 +15,16 @@
   margin-top: 25%;
 }
 
-@media  (min-width: 800px){
-  .form{
-    padding-left: 25%;
-  }
-  .form-group{
-    max-width: 80%;
-  }
+.imagen_muestra{
+  padding: 10px;
+}
 
-  }
+@media  (min-width: 800px){
+.form{
+  padding-left: 25%;
+}
+.form-group{
+  max-width: 80%;
+}
+
+}

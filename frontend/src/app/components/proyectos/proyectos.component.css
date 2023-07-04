@@ -2,26 +2,39 @@
   padding: 20px;
   color: #BDBDBD;
 }
-
 div{
   background-color: #00796B;
 
 }
-.contenedor{
-  width: auto;
+
+h2,h3{
+  display: inline;
 }
-.parte1{
-  display: inline-block;
-  text-align: justify;
+#botones{
+  display: flex;
+  justify-content: space-around;
 }
-/*.parte1, .parte2{
-  display: inline-block;
-  text-align: justify;
-}
-*/
-/*
-.img-proyecto{
-box-shadow: 10px 10px 30px #000000;
+.textolargo{
+    word-wrap: break-word;
 
 }
-*/
+#proyecto{
+  color: white;
+  /*border-style: solid;s*/
+  border-radius: 30px;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.26);
+ /*opacity: 0.3;*/
+  text-align: center;
+  left: 10%;
+  top: 100%;
+  margin:25px;
+
+}
+
+@media  (min-width: 800px){
+  .textolargo{
+    overflow-wrap: break-word;
+
+}
+  }

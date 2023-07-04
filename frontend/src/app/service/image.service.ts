@@ -6,6 +6,10 @@ import { Storage, ref, uploadBytes, list, getDownloadURL } from '@angular/fire/s
 })
 export class ImageService {
   url: string = " ";
+  auxurl: string = " ";
+  auxbanner: string= " ";
+  auxperfil: string= " ";
+
   constructor(private storage: Storage) { }
 
   public uploadImage($event:any, name: string){
@@ -13,17 +17,35 @@ export class ImageService {
     const imgRef = ref(this.storage, `imagen/`+ name)
 
     uploadBytes(imgRef, file)
-    .then(response => {this.getImages()})
+    .then(response => {this.getImages(name)})
     .catch(error => console.log(error)
     )
   }
-  getImages(){
+  getImages(name: string){
     const imagesRef = ref(this.storage, 'imagen')
     list(imagesRef)
     .then(async response => {
       for(let item of response.items ){
-        this.url = await getDownloadURL(item);
-        console.log("La URL es: "+this.url)
+        this.auxurl = await getDownloadURL(item);
+        if(this.auxurl.includes(name)){
+          this.url = this.auxurl;
+        }
+        if(name=="banner_1"){
+          if(this.auxurl.includes(name)){
+            this.auxbanner = this.auxurl;
+            this.url =null;
+          }
+        }else{
+          if(name=="perfil_1"){
+            if(this.auxurl.includes(name)){
+              this.auxperfil = this.auxurl;
+              this.url =null;
+            }
+          }
+        }
+
+
+        //
       }
 
     })

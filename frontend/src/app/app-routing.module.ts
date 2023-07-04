@@ -9,16 +9,20 @@ import { EditSkillComponent } from './components/hard-soft-skills/edit-skill.com
 import { NewSkillComponent } from './components/hard-soft-skills/new-skill.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { NewProyectosSComponent } from './components/proyectos/new-proyectos-s.component';
+import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'nuevaexp', component: NewExperienciaComponent},
+  { path: 'newexp', component: NewExperienciaComponent},
   { path: 'editexp/:id', component: EditExperienciaComponent},
-  { path: 'nuevaedu', component: NewEducacionComponent},
+  { path: 'newedu', component: NewEducacionComponent},
   { path: 'editedu/:id', component: EditEducacionComponent},
   { path: 'newskill', component: NewSkillComponent},
   { path: 'editskill/:id', component: EditSkillComponent},
+  { path: 'newproyec', component: NewProyectosSComponent},
+  { path: 'editproyec/:id', component: EditProyectosSComponent},
   { path: 'editacercade/:id', component: EditAcercaDeComponent}
 ];
 

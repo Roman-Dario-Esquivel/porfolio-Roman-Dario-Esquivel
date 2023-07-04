@@ -1,21 +1,113 @@
 <div class="fondo">
-<div class="container" *ngIf="educacion">
-  <div class="row">
-      <div class= "form">
-          <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-              <div class="form-group mb-4">
-                  <label for="nombreE">Nombre de la institucion</label>
-                  <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="educacion.nombreE" required>
-              </div>
-              <div class="form-group mb-4">
-                  <label for="descripcionE">Descripcion de sus estudios</label>
-                  <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="educacion.descripcionE" required>
-              </div>
-              <button class="btn btn-primary">
-                  Editar educacion
-              </button>
-          </form>
+  <div class="container">
+    <div class="row">
+      <div class="form">
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+          <div class="form-group mb-4">
+            <label for="nombreTitulacion">Nombre de la carrera</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombreTitulacion"
+              name="nombreTitulacion"
+              [(ngModel)]="educacion.titulacion"
+              required
+            />
+          </div>
+          <div class="form-group mb-4">
+            <label for="institucion">Nombre de la institucion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="institucion"
+              name="institucion"
+              [(ngModel)]="educacion.institucion"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="logoimg">logo de la institucion</label>
+            <input
+              type="file"
+              class="form-control"
+              id="logoimg"
+              name="logoimg"
+              [(ngModel)]="educacion.logoimg"
+              (change)="uploadImage($event)"
+              accept=".jpg, .jpeg, .png"
+            />
+          </div>
+          <div class="form-group mb-4">
+            <label for="descripcionE">Descripcion de su carrera</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descripcionE"
+              name="descripcionE"
+              [(ngModel)]="educacion.descripcion_edu"
+              required
+            />
+          </div>
+          <div class="fechaInicio">
+            <label for="fechaInicio">fecha de Inicio</label>
+
+            <input
+              type="date"
+              id="fechaInicio"
+              name="fechaInicio"
+              value="2018-07-22"
+              min="2000-01-01"
+              max="2023-12-31"
+              [(ngModel)]="educacion.fecha_inicio"
+            />
+          </div>
+
+          <div class="form-group mb-4">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="formSwitchChecked"
+                value="1"
+                [(ngModel)]="aux_actualmente"
+                checked
+              />
+              <label class="form-check-label" for="formSwitchChecked"
+                >actualmente</label
+              >
+            </div>
+          </div>
+
+          <div class="fechaFin" *ngIf="!aux_actualmente">
+            <label for="fechaFin">fecha de finalizacion</label>
+
+            <input
+              type="date"
+              id="fechaFin"
+              name="fechaFin"
+              value="2018-07-22"
+              min="fechaInicio"
+              max="2023-12-31"
+              [(ngModel)]="educacion.fecha_fin"
+            />
+          </div>
+          <div class="imagen mb-4 imagen_muestra" >
+            <p>imagen que tiene</p>
+            <img src= {{educacion.logoimg}} width="200px" *ngIf="educacion.logoimg !='vacio'" />
+          </div>
+          <div class="imagen mb-4" id="imagen_muestra">
+            <P>AQUI APARECERA SU IMAGEN UNA VEZ CARGADA </P>
+            <img
+              [src]="imageService.url"
+              width="200px"
+              *ngIf="imageService.url != null"
+            />
+          </div>
+
+          <button class="btn btn-primary">Modificar Educacion</button>
+        </form>
       </div>
+    </div>
   </div>
-</div>
 </div>
