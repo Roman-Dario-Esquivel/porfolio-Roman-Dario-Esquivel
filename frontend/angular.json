@@ -58,11 +58,11 @@
               "optimization": {
                 "scripts": true,
                 "styles": {
-                    "minify": true,
-                    "inlineCritical": false
+                  "minify": true,
+                  "inlineCritical": false
                 },
                 "fonts": true
-            }
+              }
             },
             "development": {
               "buildOptimizer": true,
@@ -116,6 +116,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Porfolio_Roman_Dario_Esquivel:build:production",
+            "firebaseProject": "romandarioesquivel-9162f",
+            "firebaseHostingSite": "romandarioesquivel-9162f"
           }
         }
       }

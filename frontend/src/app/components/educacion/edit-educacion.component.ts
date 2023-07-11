@@ -23,6 +23,7 @@ export class EditEducacionComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
     this.imageService.url=null;
+    this.imageService.loading= false;
     this.educacionS.detail(id).subscribe(
       data =>{
         this.educacion = data;
@@ -56,6 +57,7 @@ export class EditEducacionComponent implements OnInit {
   }
   uploadImage($event: any) {
     const name = "experiencia_"+this.educacion.institucion.replace(/ /g, "")+"_"+this.educacion.titulacion.replace(/ /g, "");
+    this.imageService.loading = true;
     this.imageService.uploadImage($event, name);
   }
 }

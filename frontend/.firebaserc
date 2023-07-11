@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "romandarioesquivelportfolio"
+    "default": "romandarioesquivel-9162f"
+  },
+  "targets": {
+    "romandarioesquivel-9162f": {
+      "hosting": {
+        "Porfolio_Roman_Dario_Esquivel": [
+          "romandarioesquivel-9162f"
+        ]
+      }
+    }
   }
 }

@@ -31,6 +31,7 @@ export class NewExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.imageService.url=null;
+    this.imageService.loading = false;
   }
 
   onCreate(): void {
@@ -58,6 +59,7 @@ export class NewExperienciaComponent implements OnInit {
   uploadImage($event: any) {
      this.aux = "experiencia_"+this.empresa.replace(/ /g, "")+"_"+this.puesto.replace(/ /g, "");
      const name = this.aux;
+     this.imageService.loading = true;
     this.imageService.uploadImage($event, name);
 
   }

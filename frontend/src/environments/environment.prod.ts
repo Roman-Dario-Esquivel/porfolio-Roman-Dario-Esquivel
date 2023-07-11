@@ -1,12 +1,13 @@
 export const environment = {
   firebase: {
-    projectId: 'prueba1portafolio-6f85d',
-    appId: '1:255232971358:web:6cc441e0902ae89f4e9acf',
-    storageBucket: 'prueba1portafolio-6f85d.appspot.com',
-    locationId: 'europe-west3',
-    apiKey: 'AIzaSyA0vKAWA7wj16-cl3ApF4UGM9XxXXfCVRE',
-    authDomain: 'prueba1portafolio-6f85d.firebaseapp.com',
-    messagingSenderId: '255232971358',
+    projectId: 'romandarioesquivel-9162f',
+    appId: '1:268506075830:web:0e1b75aaf956568f668c17',
+    storageBucket: 'romandarioesquivel-9162f.appspot.com',
+    locationId: 'us-central',
+    apiKey: 'AIzaSyBMIXSQe9Nvxc4-e68mjbZ-N_YF6Y0NYXE',
+    authDomain: 'romandarioesquivel-9162f.firebaseapp.com',
+    messagingSenderId: '268506075830',
+    measurementId: 'G-XQXDDBQGV8',
   },
   production: false
 };

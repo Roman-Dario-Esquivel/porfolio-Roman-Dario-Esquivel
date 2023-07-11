@@ -36,7 +36,7 @@
       <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="parte">
         <h2 id="titulo">{{ Educacion.titulacion }}</h2>
         <div id="emp_logo">
-          <img src="{{ Educacion.logoimg }}" id="logo" />
+          <img src="{{ Educacion.logoimg }}" id="logo" *ngIf="Educacion.logoimg  != 'vacio'"/>
           <h2 id="institucion">{{ Educacion.institucion }}</h2>
         </div>
         <p id="descripcion">{{ Educacion.descripcion_edu }}</p>

@@ -17,6 +17,9 @@
 .imagen_muestra{
   padding: 10px;
 }
+.loading{
+  padding: 10px;
+}
 @media  (min-width: 800px){
 .form{
   padding-left: 25%;

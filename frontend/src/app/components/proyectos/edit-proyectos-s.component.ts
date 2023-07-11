@@ -21,7 +21,8 @@ export class EditProyectosSComponent {
     ) { }
 
   ngOnInit(): void {
-    this.imageService.url=null;
+    this.imageService.url = null;
+    this.imageService.loading = false;
     const id = this.activatedRouter.snapshot.params['id'];
     this.sProyecto.detail(id).subscribe(
       data =>{
@@ -52,6 +53,7 @@ export class EditProyectosSComponent {
   uploadImage($event: any) {
     this.aux ="proyecto_"+this.proyec.nombreProyecto.replace(/ /g, "");
     const name = this.aux;
+    this.imageService.loading = true;
     this.imageService.uploadImage($event, name);
 
   }

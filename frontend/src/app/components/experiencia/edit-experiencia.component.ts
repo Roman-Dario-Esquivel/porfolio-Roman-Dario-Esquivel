@@ -25,6 +25,7 @@ export class EditExperienciaComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
     this.imageService.url=null;
+    this.imageService.loading =false;
     this.sExperiencia.detail(id).subscribe(
       data =>{
         this.expLab = data;
@@ -60,6 +61,7 @@ export class EditExperienciaComponent implements OnInit {
 
   uploadImage($event: any) {
     const name = "experiencia_"+this.expLab.empresa.replace(/ /g, "")+"_"+this.expLab.puesto.replace(/ /g, "");
+    this.imageService.loading = true;
     this.imageService.uploadImage($event, name);
   }
 

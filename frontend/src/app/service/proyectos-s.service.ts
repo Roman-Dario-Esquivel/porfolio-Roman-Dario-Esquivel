@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProyectosSService {
-  expURL ='http://localhost:8080/proyecto/';
-  //expURL = 'https://apirdeargentinaprograma.herokuapp.com/proyecto/';
+  //expURL ='http://localhost:8080/proyecto/';
+  expURL = 'https://backendrde.onrender.com/proyecto/';
 
   constructor(private httpClient: HttpClient) { }
   public lista(): Observable<Proyectos[]>{

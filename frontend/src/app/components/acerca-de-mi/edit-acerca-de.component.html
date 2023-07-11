@@ -36,8 +36,11 @@
               required
             />
           </div>
+          <p id="mensaje">
+            CARGAR DE A UNA LAS IMAGENES AMEDIDA QUE SE MUESTREN
+          </p>
           <div class="form-group mb-4">
-            <label for="img">imagen de perfil</label>
+            <label for="img">Imagen de perfil</label>
             <input
               type="file"
               class="form-control"
@@ -49,7 +52,7 @@
             />
           </div>
           <div class="form-group mb-4">
-            <label for="img">imagen de barner</label>
+            <label for="img">Imagen de banner</label>
             <input
               type="file"
               class="form-control"
@@ -60,21 +63,56 @@
               accept=".jpg, .jpeg, .png"
             />
           </div>
-          <div class="imagen mb-4 imagen_muestra" >
-            <p>imagen que tiene perfil</p>
-            <img src= {{persona.imgperfil}} width="200px" *ngIf="persona.imgperfil != 'vacio'" />
+
+          <div class="imagen mb-4 imagen_muestra">
+            <p>Imagen que tiene perfil</p>
+            <img
+              src="{{ persona.imgperfil }}"
+              width="200px"
+              *ngIf="persona.imgperfil != 'vacio'"
+            />
           </div>
-          <div class="imagen mb-4 imagen_muestra" >
-            <p>imagen que tiene banner</p>
-            <img src= {{persona.imgbanner}} width="800px" height="auto" *ngIf="persona.imgbanner != 'vacio'"/>
+          <div class="imagen mb-4 imagen_muestra">
+            <p>Imagen que tiene banner</p>
+            <img
+              src="{{ persona.imgbanner }}"
+              width="800px"
+              height="auto"
+              *ngIf="persona.imgbanner != 'vacio'"
+            />
           </div>
           <div class="imagen mb-4" id="imagen_perfil">
             <P>AQUI APARECERA SU IMAGEN DE PERFIL UNA VEZ CARGADA </P>
+            <div
+            class="spinner-border loading"
+            style="width: 3rem; height: 3rem"
+            role="status"
+            *ngIf="
+              imageService.loading == true &&
+              imageService.auxperfil == null &&
+              name == 'perfil_1'
+            "
+          >
+            <span class="sr-only"></span>
+          </div>
             <img [src]="imageService.auxperfil" width="200px" />
           </div>
           <div class="imagen mb-4" id="imagen_barner">
             <P>AQUI APARECERA SU IMAGEN DE BARNER UNA VEZ CARGADA </P>
-            <img [src]="imageService.auxbanner" width="800px" height="auto"/>
+            <img [src]="imageService.auxbanner" width="800px" height="auto" />
+
+            <div
+              class="spinner-border loading"
+              style="width: 3rem; height: 3rem"
+              role="status"
+              *ngIf="
+                imageService.loading == true &&
+                imageService.auxbanner == null &&
+                name == 'banner_1'
+              "
+            >
+              <span class="sr-only"></span>
+            </div>
           </div>
           <button class="btn btn-primary">Editar Persona</button>
         </form>

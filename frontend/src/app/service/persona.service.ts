@@ -8,8 +8,8 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  authURL ='http://localhost:8080/personas/';
-  //authURL = 'https://apirdeargentinaprograma.herokuapp.com/personas/';
+  //authURL ='http://localhost:8080/personas/';
+  authURL = 'https://backendrde.onrender.com/personas/';
 
   constructor(private httpClient: HttpClient) { }
   public lista(): Observable<persona[]>{

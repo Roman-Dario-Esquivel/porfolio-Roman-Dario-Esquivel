@@ -11,10 +11,16 @@ import { TokenService } from 'src/app/service/token.service';
 export class AcercaDeMiComponent implements OnInit {
   [x: string]: any;
   persona: persona =null;
+
   constructor(public personaService: PersonaService, private tokenService: TokenService) { }
     isLogged = false;
   ngOnInit(): void {
     this.cargarPersona();
+    if(persona!=null){
+      console.log("carga realizada");
+    }
+
+
     if(this.tokenService.getToken()){
       this.isLogged = true;
     } else {

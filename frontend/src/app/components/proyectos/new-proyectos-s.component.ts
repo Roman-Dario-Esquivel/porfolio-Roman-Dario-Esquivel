@@ -24,6 +24,7 @@ export class NewProyectosSComponent {
     ) { }
   ngOnInit(): void {
     this.imageService.url=null;
+    this.imageService.loading = false;
   }
 
   onCreate(): void{
@@ -48,6 +49,7 @@ export class NewProyectosSComponent {
   uploadImage($event: any) {
     this.aux ="proyecto_"+this.nombreProyecto.replace(/ /g, "");
     const name = this.aux;
+    this.imageService.loading = true;
     this.imageService.uploadImage($event, name);
 
   }

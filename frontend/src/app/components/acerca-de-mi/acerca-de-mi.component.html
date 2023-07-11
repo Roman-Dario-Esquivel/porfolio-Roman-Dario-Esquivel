@@ -9,7 +9,7 @@
     </button>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="contenedor_imagi">
-    <img src={{persona.imgperfil}}  class="img-fluid" id="fotodeperfil">
+    <img src={{persona.imgperfil}}  class="img-fluid" id="fotodeperfil" *ngIf="persona.imgperfil != 'vacio'">
   </div>
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <p id="nombre">{{persona.nombre}} {{persona.apellido}}</p>

@@ -103,7 +103,19 @@
               width="200px"
               *ngIf="imageService.url != null"
             />
+            <div
+              class="spinner-border loading"
+              style="width: 3rem; height: 3rem"
+              role="status"
+              *ngIf="
+                imageService.loading == true &&
+                imageService.url == null
+              "
+            >
+            <span class="sr-only"></span>
+            </div>
           </div>
+
 
           <button class="btn btn-primary">Modificar Educacion</button>
         </form>

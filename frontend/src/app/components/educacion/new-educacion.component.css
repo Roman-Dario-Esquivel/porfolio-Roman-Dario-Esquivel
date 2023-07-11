@@ -15,6 +15,9 @@
   margin-top: 25%;
 }
 
+.loading{
+  padding: 10px;
+}
 #imagen_muestra{
   padding: 10px;
 }

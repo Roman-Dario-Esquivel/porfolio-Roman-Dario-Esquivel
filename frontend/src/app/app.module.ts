@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,10 +13,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HardSoftSkillsComponent } from './components/hard-soft-skills/hard-soft-skills.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component'
-import { interceptorProvider } from './service/interceotor-service';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
@@ -25,11 +22,14 @@ import { NewEducacionComponent } from './components/educacion/new-educacion.comp
 import { NewSkillComponent } from './components/hard-soft-skills/new-skill.component';
 import { EditSkillComponent } from './components/hard-soft-skills/edit-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de-mi/edit-acerca-de.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { NewProyectosSComponent } from './components/proyectos/new-proyectos-s.component';
 import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 
 @NgModule({
@@ -54,7 +54,8 @@ import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s
     EditSkillComponent,
     EditAcercaDeComponent,
     NewProyectosSComponent,
-    EditProyectosSComponent
+    EditProyectosSComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -65,8 +66,12 @@ import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
-  providers:[
-    interceptorProvider
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

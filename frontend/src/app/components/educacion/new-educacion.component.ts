@@ -30,6 +30,7 @@ export class NewEducacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.imageService.url=null;
+    this.imageService.loading = false;
   }
   onCreate(): void {
     if(this.aux_actualmente){
@@ -55,6 +56,7 @@ export class NewEducacionComponent implements OnInit {
 
   uploadImage($event: any) {
     this.aux = "educacion_"+this.institucion.replace(/ /g, "")+"_"+this.nombreTitulacion.replace(/ /g, "");
+    this.imageService.loading = true;
     const name = this.aux;
     this.imageService.uploadImage($event, name);
   }

@@ -36,7 +36,7 @@
       <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="parte">
         <h2 id="puesto">{{ Experiencia.puesto }}</h2>
         <div id="emp_logo">
-          <img src="{{ Experiencia.logo }}" id="logo" />
+          <img src="{{ Experiencia.logo }}" id="logo" *ngIf="Experiencia.logo != 'vacio'" />
           <h2 id="empresa">{{ Experiencia.empresa }}</h2>
         </div>
         <p id="descripcion">{{ Experiencia.descripcion }}</p>

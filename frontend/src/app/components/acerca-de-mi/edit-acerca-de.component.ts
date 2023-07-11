@@ -11,6 +11,8 @@ import { PersonaService } from 'src/app/service/persona.service';
 })
 export class EditAcercaDeComponent implements OnInit {
   persona: persona = null;
+  name: string= " ";
+
   constructor(private activatedRouter: ActivatedRoute,
     private personaService: PersonaService,
     private router: Router,
@@ -20,6 +22,9 @@ export class EditAcercaDeComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     this.imageService.auxbanner = null;
     this.imageService.auxperfil = null;
+    this.imageService.loading =false;
+
+
     this.personaService.detail(id).subscribe(
       data => {
         this.persona = data;
@@ -49,12 +54,14 @@ export class EditAcercaDeComponent implements OnInit {
   }
   uploadImagePerfil($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
-    const name = "perfil_" + id;
-    this.imageService.uploadImage($event, name);
+    this.name = "perfil_" + id;
+    this.imageService.uploadImage($event, this.name);
+    this.imageService.loading = true;
   }
   uploadImagebanner($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
-    const name = "banner_" + id;
-    this.imageService.uploadImage($event, name);
+    this.name = "banner_" + id;
+    this.imageService.uploadImage($event, this.name);
+    this.imageService.loading = true;
   }
 }
