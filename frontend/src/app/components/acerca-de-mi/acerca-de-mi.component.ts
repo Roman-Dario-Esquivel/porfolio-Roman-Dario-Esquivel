@@ -16,9 +16,6 @@ export class AcercaDeMiComponent implements OnInit {
     isLogged = false;
   ngOnInit(): void {
     this.cargarPersona();
-    if(persona!=null){
-      console.log("carga realizada");
-    }
 
 
     if(this.tokenService.getToken()){

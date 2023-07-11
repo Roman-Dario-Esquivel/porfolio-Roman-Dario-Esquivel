@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "romandarioesquivel-9162f"
+    "default": "romandarioesquivel-9162f",
+    "romandarioesquivel": "romandarioesquivel-9162f"
   },
   "targets": {
     "romandarioesquivel-9162f": {
@@ -10,5 +11,6 @@
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
