@@ -22,14 +22,17 @@ import { NewEducacionComponent } from './components/educacion/new-educacion.comp
 import { NewSkillComponent } from './components/hard-soft-skills/new-skill.component';
 import { EditSkillComponent } from './components/hard-soft-skills/edit-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de-mi/edit-acerca-de.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideStorage, getStorage } from '@angular/fire/storage';
 import { NewProyectosSComponent } from './components/proyectos/new-proyectos-s.component';
 import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -63,8 +66,11 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     NgCircleProgressModule.forRoot({}),
     FormsModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [
     {
