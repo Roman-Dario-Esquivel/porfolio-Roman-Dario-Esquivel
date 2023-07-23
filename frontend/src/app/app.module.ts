@@ -27,13 +27,17 @@ import { EditProyectosSComponent } from './components/proyectos/edit-proyectos-s
 import { LoadingComponent } from './components/loading/loading.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { environment } from '../environments/environment';
+import { FirebaseAppModule, initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire/compat';
+/*import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment } from '../environments/environment';
-
+*/
 
 @NgModule({
   declarations: [
@@ -67,10 +71,12 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(()=> getStorage()),
+    /*provideAuth(()=>{
+      const auth = getAuth();
+      return auth;
+    }),*/
   ],
   providers: [
     {
